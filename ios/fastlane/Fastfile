@@ -1,0 +1,41 @@
+update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Uploads an iOS build to Firebase App Distribution for QA. A .app file must have been build beforehand."
+  lane :qa do
+    setup_ci if ENV['CI']
+    match(
+      readonly: true, 
+      type: "adhoc", 
+      app_identifier: "com.netsells.template.stg",
+      git_basic_authorization: Base64.strict_encode64(ENV['GH_BASIC_AUTH'])
+    )
+    build_app(scheme: "staging", configuration: "Release-staging")
+    firebase_app_distribution(
+      app: ENV['FIREBASE_IOS_APP_ID'],
+      groups: "qa",
+      firebase_cli_token: ENV['FIREBASE_TOKEN']
+    )
+  end
+
+  lane :production do
+    setup_ci if ENV['CI']
+    match(
+      readonly: true,
+      type: "appstore",
+      app_identifier: "com.netsells.template",
+      git_basic_authorization: Base64.strict_encode64(ENV['GH_BASIC_AUTH'])
+    )
+    build_app(scheme: "production", configuration: "Release")
+    pilot(
+      app_identifier: "com.netsells.template",
+      apple_id: "", # TODO: Add Apple ID
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false
+    )
+  end
+end

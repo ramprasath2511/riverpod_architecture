@@ -1,0 +1,7 @@
+git_url("https://github.com/netsells/template-flutter-certificates") # TODO: Update this to your repo
+
+storage_mode("git")
+
+type("development")
+
+team_id("") # TODO: Add your team ID
