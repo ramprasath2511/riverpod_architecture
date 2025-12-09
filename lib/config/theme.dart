@@ -29,7 +29,7 @@ final _theme = ThemeData(
       color: _primaryTextColor,
     ),
   ),
-  cardTheme: const CardTheme(
+  cardTheme: const CardThemeData(
     color: _backgroundColor,
     clipBehavior: Clip.hardEdge,
     margin: EdgeInsets.zero,

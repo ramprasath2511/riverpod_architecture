@@ -1,5 +1,5 @@
-import 'package:techtest/core/data/pexels_api_service.dart';
-import 'package:techtest/core/domain/image_model.dart';
+import 'package:techtest/features/home/data/services/pexels_api_service.dart';
+import 'package:techtest/features/home/domain/entities/image_model.dart';
 
 class ImageRepository {
   ImageRepository(this.apiService);

@@ -1,5 +1,5 @@
 import 'package:techtest/core/data/image_api_model.dart';
-import 'package:techtest/core/data/pexels_api_model.dart';
+import 'package:techtest/features/home/data/models/pexels_api_model.dart';
 
 class ImageModel {
   const ImageModel({

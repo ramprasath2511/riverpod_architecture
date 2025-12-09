@@ -29,13 +29,17 @@ class HomePageNotifier extends StateNotifier<AsyncValue<List<ImageModel>>> {
   }
 
   Future<void> _fetchPage() async {
-    final newImages = _currentQuery.trim().isEmpty
-        ? await _repository.fetchPopularImages(page: _page)
-        : await _repository.searchImages(_currentQuery, page: _page);
+    try {
+      final newImages = _currentQuery.trim().isEmpty
+          ? await _repository.fetchPopularImages(page: _page)
+          : await _repository.searchImages(_currentQuery, page: _page);
 
-    _hasNextPage = newImages.isNotEmpty;
-    _images.addAll(newImages);
-    state = AsyncData([..._images]);
+      _hasNextPage = newImages.isNotEmpty;
+      _images.addAll(newImages);
+      state = AsyncData([..._images]);
+    } catch (e, st) {
+      state = AsyncError(e, st);
+    }
   }
 
   Future<void> loadMore() async {

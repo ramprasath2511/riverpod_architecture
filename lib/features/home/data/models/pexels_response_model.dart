@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:techtest/core/data/pexels_api_model.dart';
+import 'package:techtest/features/home/data/models/pexels_api_model.dart';
 
 part 'pexels_api_get_images_response_model.g.dart';
 
