@@ -1,4 +1,5 @@
-import 'package:techtest/core/data/image_api_model.dart';
+
+import 'package:techtest/features/home/data/models/image_api_model.dart';
 import 'package:techtest/features/home/data/models/pexels_api_model.dart';
 
 class ImageModel {
@@ -27,9 +28,9 @@ class ImageModel {
       id: model.id.toString(),
       title: model.title,
       imageUrl: model.thumbnailUrl,
-      width: model.width,
-      height: model.height,
-      author: model.author,
+      width: model.width ?? 0,
+      height: model.height ?? 0,
+      author: model.author ?? "unknown",
     );
   }
 

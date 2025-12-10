@@ -17,7 +17,7 @@
                 "--dart-define",
                 "environment=staging",
                 "--dart-define",
-                "PEXELS_API_KEY=REPLACE_WITH_YOUR_API_KEY"
+                "PEXELS_API_KEY=DagRnTvIdrVGSxMf9uRrhVNrc02XbgCPEOZHqJKM8H5WrHcgE9jp9r2U"
             ],
         }
     ]

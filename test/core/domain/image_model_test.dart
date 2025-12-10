@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:techtest/core/domain/image_model.dart';
+import 'package:techtest/features/home/domain/entities/image_model.dart';
 
 import '../image_fixtures.dart';
 

@@ -1,8 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:techtest/core/data/pexels_api_service.dart';
-import 'package:techtest/core/domain/image_model.dart';
-import 'package:techtest/core/domain/image_repository.dart';
+import 'package:techtest/core/error/error_logger.dart';
+import 'package:techtest/features/home/data/services/pexels_api_service.dart';
+import 'package:techtest/features/home/domain/entities/image_model.dart';
+import 'package:techtest/features/home/data/repositories/image_repository.dart';
 
 import '../image_fixtures.dart';
 
@@ -19,7 +21,7 @@ void main() {
 
   group('ImageRepository', () {
     test('fetchPopularImages returns converted models', () async {
-      when(() => mockApiService.fetchPopularImages(0, 20)).thenAnswer(
+      when(() => mockApiService.fetchPopularImages(any(), any())).thenAnswer(
         (_) async => sampleImageResponse,
       );
 
@@ -30,7 +32,7 @@ void main() {
     });
 
     test('searchImages returns converted models', () async {
-      when(() => mockApiService.searchImages('cat', 0, 20)).thenAnswer(
+      when(() => mockApiService.searchImages('cat', any(), any())).thenAnswer(
         (_) async => sampleImageResponse,
       );
 
@@ -51,4 +53,5 @@ void main() {
       expect(domainModel.author, sampleImageModel.author);
     });
   });
+
 }

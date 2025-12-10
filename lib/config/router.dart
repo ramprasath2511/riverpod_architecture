@@ -1,4 +1,4 @@
-part of 'app.dart';
+part of '../features/app/app.dart';
 
 final _routes = <GoRoute>[
   GoRoute(
@@ -12,6 +12,10 @@ final _routes = <GoRoute>[
       final image = state.extra as ImageModel?;
       return ImageDetailsPage(image: image);
     },
+  ),
+  GoRoute(
+    path: '/favourites',
+    builder: (context, state) => const FavoritePage(),
   ),
 ];
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:techtest/core/domain/image_model.dart';
+import 'package:techtest/features/home/domain/entities/image_model.dart';
 
 class ImageTile extends StatelessWidget {
   const ImageTile({super.key, required this.image});

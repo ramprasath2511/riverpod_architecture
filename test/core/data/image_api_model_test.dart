@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:techtest/core/data/pexels_api_model.dart';
+import 'package:techtest/features/home/data/models/pexels_api_model.dart';
 
 import '../image_fixtures.dart';
 
@@ -29,5 +29,14 @@ void main() {
       );
       expect(model.author, equals('John Doe'));
     });
+
+    test('parses null JSON for negative scenario', () {
+      final model = PexelsApiModel.fromJson({});
+
+      expect(model.id, isNull);
+      expect(model.imageUrl, isEmpty);
+      expect(model.src, isNull);
+    });
   });
+
 }

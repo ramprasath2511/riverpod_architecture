@@ -2,8 +2,8 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
-import 'package:techtest/core/domain/image_model.dart';
-import 'package:techtest/core/domain/image_repository.dart';
+import 'package:techtest/features/home/domain/entities/image_model.dart';
+import 'package:techtest/features/home/data/repositories/image_repository.dart';
 
 class HomePageNotifier extends StateNotifier<AsyncValue<List<ImageModel>>> {
   HomePageNotifier() : super(const AsyncLoading()) {
@@ -18,6 +18,8 @@ class HomePageNotifier extends StateNotifier<AsyncValue<List<ImageModel>>> {
   bool _hasNextPage = true;
   bool _isLoadingMore = false;
   String _currentQuery = '';
+
+  final List<String> resentSearches = [];
 
   Future<void> search(String query) async {
     _currentQuery = query;
@@ -49,4 +51,14 @@ class HomePageNotifier extends StateNotifier<AsyncValue<List<ImageModel>>> {
     await _fetchPage();
     _isLoadingMore = false;
   }
+
+  final int lengthStoreSearch = 10;
+
+  void storeRecentSearch(String key){
+    if(resentSearches.length >= lengthStoreSearch) {
+      resentSearches.remove(key);
+    }
+
+  }
+
 }

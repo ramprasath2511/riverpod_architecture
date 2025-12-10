@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:techtest/core/domain/image_model.dart';
-import 'package:techtest/features/home/presentation/image_tile.dart';
+import 'package:techtest/features/home/domain/entities/image_model.dart';
+import 'package:techtest/features/home/presentation/widgets/image_tile.dart';
 
 class ImageGrid extends StatelessWidget {
   const ImageGrid({

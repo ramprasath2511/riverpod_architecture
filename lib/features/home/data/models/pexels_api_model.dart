@@ -5,29 +5,29 @@ part 'pexels_api_model.g.dart';
 @JsonSerializable()
 class PexelsApiModel {
   const PexelsApiModel({
-    required this.id,
-    required this.width,
-    required this.height,
-    required this.photographer,
-    required this.src,
-    required this.alt,
+     this.id,
+     this.width,
+     this.height,
+     this.photographer,
+     this.src,
+     this.alt,
   });
 
   factory PexelsApiModel.fromJson(Map<String, dynamic> json) {
     return _$PexelsApiModelFromJson(json);
   }
 
-  final int id;
-  final int width;
-  final int height;
-  final String photographer;
-  final PexelsSrcModel src;
-  final String alt;
+  final int? id;
+  final int? width;
+  final int? height;
+  final String? photographer;
+  final PexelsSrcModel? src;
+  final String? alt;
 
-  String get imageUrl => src.original;
-  String get thumbnailUrl => src.medium;
-  String get title => alt.isNotEmpty ? alt : 'Photo by $photographer';
-  String? get author => photographer;
+  String get imageUrl => src?.original ?? '';
+  String get thumbnailUrl => src?.medium ?? '';
+  String get title => (alt?.isNotEmpty ?? false) ? alt! : 'Photo by ${photographer ?? "Unknown"}';
+  String get author => photographer ?? 'Unknown';
 }
 
 @JsonSerializable()

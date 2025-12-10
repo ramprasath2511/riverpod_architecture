@@ -1,4 +1,4 @@
-part of 'app.dart';
+part of '../features/app/app.dart';
 
 const _backgroundColor = Colors.black;
 const _primaryTextColor = Colors.white;

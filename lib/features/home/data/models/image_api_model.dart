@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'image_api_model.g.dart';
-
 @JsonSerializable()
 class ImageApiModel {
   const ImageApiModel({
